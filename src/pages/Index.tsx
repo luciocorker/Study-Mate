@@ -15,6 +15,7 @@ import { Menu, X } from "lucide-react";
 const Index = () => {
   const [currentView, setCurrentView] = useState("dashboard");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user, profile, loading, signOut } = useAuth();
   const [exams, setExams] = useState([]);
   const [examsLoading, setExamsLoading] = useState(false);
@@ -89,27 +90,60 @@ const Index = () => {
 
   return (
     <div className="flex h-screen bg-background overflow-hidden">
-      <Sidebar 
-        currentView={currentView}
-        onViewChange={setCurrentView}
-        userData={{
-          id: user.id,
-          firstName: profile.first_name,
-          lastName: profile.last_name,
-          school: profile.school,
-          learningStyle: profile.learning_style,
-          learningPreferences: profile.learning_preferences
-        }}
-        onLogout={handleLogout}
-        collapsed={sidebarCollapsed}
-        onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
-      />
-      <main className="flex-1 overflow-auto relative">
-        {/* Sidebar Toggle Button */}
+      {/* Mobile Sidebar Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 md:hidden" 
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      
+      {/* Sidebar */}
+      <div className={`
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} 
+        md:translate-x-0 
+        ${sidebarCollapsed && !sidebarOpen ? 'md:w-16' : 'md:w-80'} 
+        fixed md:relative 
+        z-50 md:z-auto 
+        transition-transform duration-300 ease-in-out
+        h-full
+      `}>
+        <Sidebar 
+          currentView={currentView}
+          onViewChange={(view) => {
+            setCurrentView(view);
+            setSidebarOpen(false); // Close mobile sidebar after selection
+          }}
+          userData={{
+            id: user.id,
+            firstName: profile.first_name,
+            lastName: profile.last_name,
+            school: profile.school,
+            learningStyle: profile.learning_style,
+            learningPreferences: profile.learning_preferences
+          }}
+          onLogout={handleLogout}
+          collapsed={sidebarCollapsed}
+          onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+        />
+      </div>
+      
+      <main className="flex-1 overflow-auto relative w-full md:w-auto">
+        {/* Mobile Sidebar Toggle Button */}
         <Button
           variant="outline"
           size="sm"
-          className="fixed top-4 left-4 z-40 bg-background/80 backdrop-blur-sm border-border/50 hover:bg-accent"
+          className="fixed top-4 left-4 z-30 md:hidden bg-background/90 backdrop-blur-sm border-border/50 hover:bg-accent shadow-lg"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        >
+          <Menu className="h-4 w-4" />
+        </Button>
+        
+        {/* Desktop Sidebar Toggle Button */}
+        <Button
+          variant="outline"
+          size="sm"
+          className="hidden md:flex fixed top-4 left-4 z-30 bg-background/80 backdrop-blur-sm border-border/50 hover:bg-accent"
           onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
         >
           {sidebarCollapsed ? <Menu className="h-4 w-4" /> : <X className="h-4 w-4" />}

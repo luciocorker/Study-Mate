@@ -126,20 +126,20 @@ export const Dashboard = ({ userData, onViewChange }: DashboardProps) => {
     : 0;
 
   return (
-    <div className="flex-1 p-6 bg-gradient-background min-h-full">
+    <div className="flex-1 p-4 md:p-6 bg-gradient-background min-h-full">
       {/* Hero Section */}
-      <div className="relative mb-8 rounded-xl overflow-hidden shadow-elevated">
+      <div className="relative mb-6 md:mb-8 rounded-xl overflow-hidden shadow-elevated">
         <img 
           src={heroImage} 
           alt="Study Assistant" 
-          className="w-full h-48 object-cover"
+          className="w-full h-32 md:h-48 object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary-glow/60 flex items-center">
-          <div className="p-8 text-primary-foreground">
-            <h1 className="text-3xl font-bold mb-2">
+          <div className="p-4 md:p-8 text-primary-foreground">
+            <h1 className="text-xl md:text-3xl font-bold mb-1 md:mb-2">
               Welcome back, {userData.firstName}!
             </h1>
-            <p className="text-lg opacity-90">
+            <p className="text-sm md:text-lg opacity-90">
               Ready to continue your study journey at {userData.school}?
             </p>
           </div>
@@ -147,7 +147,7 @@ export const Dashboard = ({ userData, onViewChange }: DashboardProps) => {
       </div>
 
       {/* Stats Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
         <Card className="shadow-soft">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
@@ -173,25 +173,25 @@ export const Dashboard = ({ userData, onViewChange }: DashboardProps) => {
         </Card>
         
         <Card className="shadow-soft">
-          <CardContent className="p-6">
+          <CardContent className="p-3 md:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Next Exam</p>
-                <p className="text-2xl font-bold">6 days</p>
+                <p className="text-xs md:text-sm text-muted-foreground">Next Exam</p>
+                <p className="text-lg md:text-2xl font-bold">6 days</p>
               </div>
-              <Calendar className="h-8 w-8 text-accent" />
+              <Calendar className="h-6 w-6 md:h-8 md:w-8 text-accent" />
             </div>
           </CardContent>
         </Card>
         
         <Card className="shadow-soft">
-          <CardContent className="p-6">
+          <CardContent className="p-3 md:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Study Hours</p>
-                <p className="text-2xl font-bold">24.5h</p>
+                <p className="text-xs md:text-sm text-muted-foreground">Study Hours</p>
+                <p className="text-lg md:text-2xl font-bold">24.5h</p>
               </div>
-              <Clock className="h-8 w-8 text-primary-glow" />
+              <Clock className="h-6 w-6 md:h-8 md:w-8 text-primary-glow" />
             </div>
           </CardContent>
         </Card>
@@ -204,21 +204,21 @@ export const Dashboard = ({ userData, onViewChange }: DashboardProps) => {
         const Icon = tips.icon;
         
         return (
-          <Card className="shadow-soft mb-8 border-2 border-primary/20">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+          <Card className="shadow-soft mb-6 md:mb-8 border-2 border-primary/20">
+            <CardHeader className="p-4 md:p-6">
+              <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
                 <Lightbulb className="h-5 w-5 text-yellow-500" />
                 Personalized Study Tips
               </CardTitle>
               <CardDescription>
                 <div className="flex items-center gap-2">
                   <Icon className={`h-4 w-4 ${tips.color}`} />
-                  <span>Based on your {profile.learning_style.replace('_', '/')} learning style</span>
+                  <span className="text-sm">Based on your {profile.learning_style.replace('_', '/')} learning style</span>
                 </div>
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <CardContent className="p-4 md:p-6 pt-0">
+              <div className="grid grid-cols-1 gap-3 md:gap-4">
                 {tips.suggestions.map((tip, index) => (
                   <div key={index} className="flex items-start gap-2 p-3 bg-muted/50 rounded-lg">
                     <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
@@ -248,9 +248,9 @@ export const Dashboard = ({ userData, onViewChange }: DashboardProps) => {
       })()}
 
       {/* Quick Actions */}
-      <div className="flex gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8">
         <Button 
-          className="bg-gradient-primary hover:shadow-glow transition-all duration-300"
+          className="bg-gradient-primary hover:shadow-glow transition-all duration-300 h-12 md:h-10"
           onClick={() => onViewChange("exams")}
         >
           <Plus className="h-4 w-4 mr-2" />
@@ -258,7 +258,7 @@ export const Dashboard = ({ userData, onViewChange }: DashboardProps) => {
         </Button>
         <Button 
           variant="outline" 
-          className="hover:bg-gradient-secondary hover:text-secondary-foreground transition-all duration-300"
+          className="hover:bg-gradient-secondary hover:text-secondary-foreground transition-all duration-300 h-12 md:h-10"
           onClick={() => onViewChange("schedule")}
         >
           <Target className="h-4 w-4 mr-2" />
@@ -268,16 +268,16 @@ export const Dashboard = ({ userData, onViewChange }: DashboardProps) => {
 
       {/* Upcoming Exams */}
       <Card className="shadow-elevated">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+        <CardHeader className="p-4 md:p-6">
+          <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
             <BookOpen className="h-5 w-5 text-primary" />
             Upcoming Exams
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-sm">
             Track your exam preparation progress
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 md:p-6 pt-0">
           <div className="space-y-4">
             {loading ? (
               <div className="text-center text-muted-foreground">Loading exams...</div>

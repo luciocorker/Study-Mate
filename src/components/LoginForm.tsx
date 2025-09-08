@@ -79,17 +79,17 @@ export const LoginForm = () => {
 
   return (
     <div className="min-h-screen bg-gradient-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-8">
+      <div className="w-full max-w-md space-y-6 md:space-y-8">
         <div className="text-center">
-          <div className="flex items-center justify-center mb-6">
-            <div className="bg-gradient-primary p-4 rounded-full shadow-glow">
-              <GraduationCap className="h-12 w-12 text-primary-foreground" />
+          <div className="flex items-center justify-center mb-4 md:mb-6">
+            <div className="bg-gradient-primary p-3 md:p-4 rounded-full shadow-glow">
+              <GraduationCap className="h-10 w-10 md:h-12 md:w-12 text-primary-foreground" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
             StudyMate
           </h1>
-          <p className="text-muted-foreground mt-2">
+          <p className="text-muted-foreground mt-2 text-sm md:text-base">
             Your AI-powered study companion
           </p>
         </div>
@@ -169,8 +169,7 @@ export const LoginForm = () => {
                   </div>
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300"
-                    size="lg"
+                    className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 h-12 text-base"
                     disabled={loading}
                   >
                     {loading ? "Creating Account..." : "Create Account"}
@@ -204,8 +203,7 @@ export const LoginForm = () => {
                   </div>
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300"
-                    size="lg"
+                    className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 h-12 text-base"
                     disabled={loading}
                   >
                     {loading ? "Signing In..." : "Sign In"}
