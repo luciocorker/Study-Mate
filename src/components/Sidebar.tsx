@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card } from "@/components/ui/card";
+import { API_ENDPOINTS } from "@/lib/api";
 import { 
   Home, 
   Calendar, 
@@ -89,7 +90,7 @@ export const Sidebar = ({ currentView, onViewChange, userData, onLogout }: Sideb
         userName: userData.firstName
       };
 
-      const response = await fetch("http://localhost:3001/api/generate-ai", {
+      const response = await fetch(API_ENDPOINTS.generateAI, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(context)

@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/useAuth';
+import { API_ENDPOINTS } from '@/lib/api';
 import { 
   Upload, 
   FileText, 
@@ -79,7 +80,7 @@ export const PDFStudyAssistant: React.FC<PDFStudyAssistantProps> = ({ userId, le
 
   const fetchUserPDFs = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/user-pdfs/${userId}`);
+      const response = await fetch(API_ENDPOINTS.userPDFs(userId));
       const data = await response.json();
       setPdfs(data.pdfs || []);
     } catch (error) {
@@ -108,7 +109,7 @@ export const PDFStudyAssistant: React.FC<PDFStudyAssistantProps> = ({ userId, le
     console.log('Uploading file:', file.name, file.type, file.size);
 
     try {
-      const response = await fetch('http://localhost:3001/api/upload-pdf', {
+      const response = await fetch(API_ENDPOINTS.uploadPDF, {
         method: 'POST',
         body: formData,
       });
@@ -144,7 +145,7 @@ export const PDFStudyAssistant: React.FC<PDFStudyAssistantProps> = ({ userId, le
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/api/pdf-qa', {
+      const response = await fetch(API_ENDPOINTS.pdfQA, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -174,7 +175,7 @@ export const PDFStudyAssistant: React.FC<PDFStudyAssistantProps> = ({ userId, le
 
     setGeneratingTest(true);
     try {
-      const response = await fetch('http://localhost:3001/api/generate-test', {
+      const response = await fetch(API_ENDPOINTS.generateTest, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
