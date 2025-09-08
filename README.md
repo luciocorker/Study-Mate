@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
+<h1>What is StudyMate?</h1>  
+StudyMate is a comprehensive AI-powered study companion application designed to help students optimize their learning experience and academic performance.
 
-## Project info
+<h2>What does the app do?</h2>
+Core Features:
+<h3>AI Study Assistant (PDF Assistant)</h3> 
 
-**URL**: https://lovable.dev/projects/e6bc5572-19e8-4211-a7f0-bf0b1564b03b
+<h4>Upload and analyze PDF documents</h4>
+Get AI-powered insights and explanations
+Interactive Q&A with study materials
+Personalized learning recommendations
+<h4>Smart Study Planning</h4>
 
-## How can I edit this code?
+Generate personalized study schedules
+Interactive study calendar
+Track study sessions and progress
+Adaptive scheduling based on availability
+<h4>Exam Management</h4>
 
-There are several ways of editing your application.
+Add and track upcoming exams
+Monitor preparation progress
+Get exam-specific study recommendations
+Deadline reminders and alerts
 
-**Use Lovable**
+<h4>Learning Style </h4>
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e6bc5572-19e8-4211-a7f0-bf0b1564b03b) and start prompting.
+Personalized learning style evaluation
+Tailored study recommendations
+Adaptive content delivery based on learning preferences
+Dashboard & Analytics
 
-Changes made via Lovable will be committed automatically to this repo.
+<h4>Visual progress tracking</h4>
+Study statistics and insights
+Performance metrics
+Quick access to all features
 
-**Use your preferred IDE**
+<h3>Who can it help?</h3>
+<h2>Primary Users:</h2>
+High School Students preparing for standardized tests and final exams
+College/University Students managing multiple courses and assignments
+Graduate Students working with complex research materials
+Professional Students (medical, law, certification programs)
+Adult Learners returning to education or pursuing continuing education
+Specific Use Cases:
+Students struggling with time management
+Visual and kinesthetic learners needing personalized approaches
+Students with heavy course loads requiring efficient study strategies
+Anyone wanting to optimize their study habits with AI assistance
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+ <h3> Why is it valuable?</h3>
+Key Benefits:
+Personalization: Adapts to individual learning styles and preferences
+Efficiency: AI-powered insights help students focus on what matters most
+Organization: Centralized platform for all study-related activities
+Intelligence: Uses advanced AI to provide contextual help and explanations
+Accessibility: Mobile-responsive design for studying anywhere
+Progress Tracking: Visual feedback on learning progress and goals
+<h3>Problem it Solves:</h3>
+Information Overload: Helps digest and understand complex materials
+Poor Time Management: Creates structured, realistic study plans
+Lack of Personalization: Adapts to individual learning needs
+Inefficient Study Methods: Provides evidence-based study strategies
+Motivation Issues: Gamifies learning with progress tracking and achievements
+The app essentially transforms traditional studying from a scattered, inefficient process into a structured, AI-enhanced learning experience that adapts to each student's unique needs and goals.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e6bc5572-19e8-4211-a7f0-bf0b1564b03b) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
