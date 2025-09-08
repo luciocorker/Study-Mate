@@ -9,9 +9,12 @@ import { LearningStyleAssessment } from "@/components/LearningStyleAssessment";
 import { PDFStudyAssistant } from "@/components/PDFStudyAssistant";
 import Settings from "@/components/Settings";
 import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 const Index = () => {
   const [currentView, setCurrentView] = useState("dashboard");
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const { user, profile, loading, signOut } = useAuth();
   const [exams, setExams] = useState([]);
   const [examsLoading, setExamsLoading] = useState(false);
@@ -98,8 +101,20 @@ const Index = () => {
           learningPreferences: profile.learning_preferences
         }}
         onLogout={handleLogout}
+        collapsed={sidebarCollapsed}
+        onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
       />
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto relative">
+        {/* Sidebar Toggle Button */}
+        <Button
+          variant="outline"
+          size="sm"
+          className="fixed top-4 left-4 z-40 bg-background/80 backdrop-blur-sm border-border/50 hover:bg-accent"
+          onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+        >
+          {sidebarCollapsed ? <Menu className="h-4 w-4" /> : <X className="h-4 w-4" />}
+        </Button>
+        
         {currentView === "dashboard" && (
           <Dashboard 
             userData={{
