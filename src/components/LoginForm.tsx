@@ -71,12 +71,9 @@ export const LoginForm = () => {
     } else {
       toast({
         title: "Signed in!",
-        description: "Welcome back! Redirecting to dashboard...",
+        description: "Welcome back to StudyMate!",
       });
-      // Redirect to dashboard after a short delay
-      setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 1500);
+      // The useAuth hook will automatically handle the state change and show the dashboard
     }
   };
 
