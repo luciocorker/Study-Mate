@@ -3,5 +3,11 @@
   "buildCommand": "cp package-frontend.json package.json && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "installCommand": "cp package-frontend.json package.json && npm install --legacy-peer-deps"
+  "installCommand": "cp package-frontend.json package.json && npm install --legacy-peer-deps",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
