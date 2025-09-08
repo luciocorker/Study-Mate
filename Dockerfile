@@ -7,11 +7,14 @@ WORKDIR /app
 # Copy backend package file
 COPY package-backend.json package.json
 
-# Install only backend dependencies
+# Install backend dependencies
 RUN npm install
 
 # Copy only the server file
 COPY server.js ./
+
+# Create uploads directory
+RUN mkdir -p uploads
 
 # Expose port
 EXPOSE 3001
