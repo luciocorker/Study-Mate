@@ -1,6 +1,6 @@
 // API configuration for different environments
 const API_BASE_URL = import.meta.env.PROD 
-  ? 'https://your-backend-app.railway.app'  // Will update this after backend deployment
+  ? 'https://study-mate-production.up.railway.app'  // Replace with your actual Railway URL
   : 'http://localhost:3001';
 
 export const API_ENDPOINTS = {

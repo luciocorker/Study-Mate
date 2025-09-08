@@ -1,0 +1,13 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm install && npm run build"
+
+[deploy]
+startCommand = "node server.js"
+healthcheckPath = "/api/test"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+
+[environment]
+NODE_VERSION = "18"
+NPM_CONFIG_PRODUCTION = "false"
